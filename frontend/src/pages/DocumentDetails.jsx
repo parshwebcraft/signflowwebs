@@ -57,7 +57,7 @@ export default function DocumentDetails() {
       cancelled = true;
       if (urlToRevoke) URL.revokeObjectURL(urlToRevoke);
     };
-  }, [doc?.id, doc?.status, doc?.signed_file]);
+  }, [doc?.id, doc?.status, doc?.signed_file]); // eslint-disable-line
 
   const createRequest = async (e) => {
     e.preventDefault();
