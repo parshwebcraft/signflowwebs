@@ -103,6 +103,7 @@ Deploy the Python FastAPI server as a **Web Service** on Render:
    - **Branch**: `main`
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `python -m uvicorn server:app --host 0.0.0.0 --port $PORT`
+   - **Python Version**: Configured automatically via the `backend/.python-version` file (locks to `3.11.9` to prevent Python 3.14 dependency conflicts).
 5. In the **Environment Variables** section, add the following key-value pairs:
    - `MONGO_URL`: *Your MongoDB Atlas Connection String*
    - `DB_NAME`: `docusign_mvp`
