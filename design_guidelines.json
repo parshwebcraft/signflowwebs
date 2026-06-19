@@ -1,0 +1,65 @@
+{
+  "theme_and_archetype": {
+    "theme": "Light",
+    "archetype": "4 (Swiss & High-Contrast) - Modified for Linear/Notion Minimalist SaaS Vibe"
+  },
+  "typography": {
+    "heading_font": "Plus Jakarta Sans, sans-serif",
+    "body_font": "Inter, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "instructions": "Import fonts from Google Fonts. Do NOT use Inter for headings."
+  },
+  "color_palette": {
+    "background": "#FFFFFF",
+    "surface": "#F7F7F8",
+    "border": "#E4E4E7",
+    "text_primary": "#09090B",
+    "text_secondary": "#71717A",
+    "primary_action": "#09090B",
+    "primary_action_hover": "#27272A",
+    "status": {
+      "draft": { "bg": "#F4F4F5", "text": "#52525B" },
+      "pending": { "bg": "#FEF3C7", "text": "#D97706" },
+      "signed": { "bg": "#D1FAE5", "text": "#059669" }
+    }
+  },
+  "spacing_and_layout": {
+    "strategy": "Cardless UI, subtle borders, extremely generous whitespace.",
+    "container_padding": "p-8 md:p-12",
+    "border_radius": "rounded-md",
+    "grid_system": "Mode B 'Control Room Grid' for KPIs (col-span-1), single column list for main data.",
+    "sidebar": "w-64 width, sticky positioning, light gray (#F7F7F8) background, no right border or very subtle 1px border."
+  },
+  "components": {
+    "buttons": "Flat, pure black background for primary, white text. Secondary buttons are white with 1px zinc-200 border. No drop shadows anywhere.",
+    "inputs": "Minimalist. 1px solid border, subtle black focus ring (ring-zinc-950).",
+    "tables_and_lists": "Linear-style lists. Avoid full grid tables. Use clean rows separated by subtle border-b (border-zinc-200), no vertical lines.",
+    "badges": "Small, rounded-full, flat background colors corresponding to status."
+  },
+  "media": [
+    {
+      "category": "auth_background",
+      "url": "https://images.unsplash.com/photo-1656259145847-81bcdac8f0f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMGVtcHR5JTIwZGVzayUyMHdvcmtzcGFjZSUyMHdoaXRlfGVufDB8fHx8MTc4MTg3Nzc1Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Minimalist clean desk workspace to be used on the right side of the split-screen auth pages."
+    }
+  ],
+  "accessibility_and_testing": {
+    "data_testid_rule": "MANDATORY. Every interactive element (button, input, form, link, badge) MUST have a role-based kebab-case data-testid attribute.",
+    "motion": "Respect prefers-reduced-motion. Use simple opacity/transform transitions, duration 200ms."
+  },
+  "pages": {
+    "auth": "Split screen layout. Form vertically and horizontally centered on the left half with massive whitespace. Image on the right half.",
+    "dashboard": "Minimalist top bar. 3 KPI summary widgets in a horizontal row (Total, Pending, Signed). Below, a 'Recent Activity' list (not a heavy table, just a clean list).",
+    "document_list": "Top action bar with title and 'Upload Document' primary button. Below, a clean Linear-style list of documents displaying Name, Upload Date, and Status Badge.",
+    "document_details": "Two-column bento layout. Left (col-span-8): Large PDF preview area with light gray background. Right (col-span-4): Document metadata, Signature Request form (Signer Name, Email), and a section to copy the shareable link. Use 'Control Room' tight spacing within the right panel.",
+    "public_signing_page": "Standalone centered layout. Minimal header with brand. Main content: Document preview with clear instructions. A prominent interactive Signature Pad component (using react-signature-canvas) with 'Clear' and 'Submit Signature' buttons. Keep it ultra-clean to build trust."
+  },
+  "instructions_to_main_agent": [
+    "Implement the frontend in React using Tailwind CSS and shadcn/ui components. Strip default shadcn shadows to fit the flat, minimalist Linear vibe.",
+    "Implement the backend in FastAPI with MongoDB and local file storage for PDFs.",
+    "Ensure JWT authentication protects all dashboard routes.",
+    "Use react-signature-canvas (or similar) for the drawing functionality on the public signing page.",
+    "Implement backend PDF manipulation using a library like PyMuPDF (fitz) or PyPDF2/reportlab to actually embed the base64 signature image at the bottom of the last page of the PDF upon finalization.",
+    "Add data-testid to EVERYTHING interactive for testing purposes."
+  ]
+}
